@@ -53,10 +53,10 @@ object SmartTypes extends App {
     override def assertion = assert {
       matches {
         start ~
-          anyRegexOf(alphanumeric, literal("-"), literal("\\.")).+ ~
+          anyRegexOf(alphanumeric, literal("-"), literal(".")).+ ~
           literal("@") ~
           anyRegexOf(alphanumeric, literal("-")).+ ~
-          literal("\\.").+ ~
+          literal(".").+ ~
           anyRegexOf(alphanumeric, literal("-")).between(2, 4) ~
           end
       }

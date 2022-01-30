@@ -352,7 +352,7 @@ object Assertion {
     }
 
     case object Anything extends Regex {
-      def compile: String = ""
+      def compile: String = "(?:.|\n)*"
     }
 
     final case class Alphanumeric(reversed: Boolean) extends Regex {
@@ -368,7 +368,7 @@ object Assertion {
     }
 
     final case class Literal(char: Char) extends Regex {
-      def compile: String = s"$char"
+      def compile: String = raw"\Q$char\E"
     }
 
     final case class CharacterSet(set: Set[Regex], reversed: Boolean) extends Regex {
